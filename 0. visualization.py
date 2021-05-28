@@ -20,9 +20,7 @@ print(datas.isnull().sum())
 print('--------------------[describe info]--------------------')
 print(datas.describe().T)
 
-drop_datas = datas
-for cols in drop_datas.columns:
-    drop_datas = drop_datas[drop_datas[cols] != -1]
+drop_datas = pd.read_csv('./KLBPDB_HTN_renew.csv')
 
 print('data shape : ', drop_datas.shape)
 print('--------------------[drop dataset info]--------------------')
@@ -31,6 +29,11 @@ print('--------------------[drop missing info]--------------------')
 print(drop_datas.isnull().sum())
 print('--------------------[drop describe info]--------------------')
 print(drop_datas.describe().T)
+
+drop_datas = datas
+for cols in drop_datas.columns:
+    drop_datas = drop_datas[drop_datas[cols] != -1]
+
 #
 # # visualization hypertension vs normal by SBP & DBP
 datas['SBP_units'] = (datas['SBP'].fillna(100)*0.1).astype(int)*10

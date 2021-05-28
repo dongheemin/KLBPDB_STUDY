@@ -1,7 +1,6 @@
 import tensorflow as tf
 import pandas as pd
 import numpy as np
-from imblearn.over_sampling import SMOTE
 from sklearn.model_selection import train_test_split
 from keras import backend as K
 
@@ -26,3 +25,4 @@ def f1_m(y_true, y_pred):
 
 dataset = pd.read_csv('./KLBPDB_HTN.csv')
 
+print(dataset[dataset['FBS'].isnull()])
